@@ -6,6 +6,9 @@
     </head>
     <body>
         <p>به انجمن کتاب خوانی خوش آمدید</p>
+        {% for i in post %}
+            <h3>{{ i.author }}<br> <p>{{ i.body }}</p></h3>
+        {% endfor %}
 
     </body>
 </html>
