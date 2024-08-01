@@ -15,8 +15,16 @@ services:
         target: /code
     command: python manage.py runserver 0.0.0.0:8000
     ports:
-      - "8000:8000"
+      - "8000"
     depends_on:
       - db
     env_file:
       - .passenv
+  nginx:
+    image: nginx
+    volumes:
+      - ./conf.d:/etc/nginx/conf.d
+    depends_on:
+      - web
+    ports:
+      - "80:80"
